@@ -1,0 +1,13 @@
+import React, { useEffect } from "react";
+import { Route, Routes, redirect } from "react-router-dom";
+import App1 from "./components/index";
+
+export default function App() {
+  return (
+    <div className="">
+      <Routes>
+        <Route path="/one" element={<App1 />} />
+      </Routes>
+    </div>
+  );
+}

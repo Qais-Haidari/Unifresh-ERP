@@ -1,0 +1,19 @@
+{
+  "name": "erp_unifresh",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "client": "npm start --prefix client",
+    "server": "npm start --prefix server",
+    "start": "concurrently \"npm run server\" \"npm run client\""
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "concurrent": "^0.3.2",
+    "concurrently": "^8.2.2",
+    "fetch": "^1.1.0"
+  }
+}
