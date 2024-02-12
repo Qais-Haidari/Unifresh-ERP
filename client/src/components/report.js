@@ -46,7 +46,7 @@ export default function Report() {
 
   const IPCA_V3 = () => {
     axios
-      .get(`http://localhost:5000/IPCA_V3/${IPCA_Start}/${IPCA_End}`)
+      .get(`http://10.0.0.129:5000/IPCA_V3/${IPCA_Start}/${IPCA_End}`)
       .then((res) => {
         setIPCA_DATA(res.data);
       })

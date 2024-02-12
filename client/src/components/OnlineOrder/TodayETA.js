@@ -8,7 +8,7 @@ const MapContainer = () => {
   
   useEffect(() => {
     axios
-          .get(`http://10.0.0.223:5000/onlineOrdering/ordering/ETA/UF1784518`)
+          .get(`http://10.0.0.129:5000/onlineOrdering/ordering/ETA/UF1784518`)
           .then((res) => {
             setOrderItem(res.data)
           }

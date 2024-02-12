@@ -5,7 +5,7 @@ export default function OnlineOrder() {
   const [state, setstate] = useState([]);
   useEffect(() => {
     axios
-          .get(`http://10.0.0.223:5000/onlineOrdering/ordering/Schedules/Test 8`)
+          .get(`http://10.0.0.129:5000/onlineOrdering/ordering/Schedules/Test 8`)
           .then((res) => {
             setstate(res.data)
           })

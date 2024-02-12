@@ -11,7 +11,7 @@ let { id } = useParams();
     setLoading(true)
     axios
       .get(
-        `http://10.0.0.223:5000/Web/WebOrders/get/one/${id}`
+        `http://10.0.0.129:5000/Web/WebOrders/get/one/${id}`
       )
       .then((res) => {
         setstate(res.data);
