@@ -1,0 +1,21 @@
+{
+  "name": "json-find",
+  "version": "2.0.8",
+  "description": "Searches a JSON document or JSON compatible object for a given key.",
+  "repository": "beanmo/json-find",
+  "main": "json-find.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "jest"
+  },
+  "keywords": [
+    "json"
+  ],
+  "author": "Ben Morin",
+  "license": "ISC",
+  "devDependencies": {
+    "jest": "^24.5.0"
+  }
+}
