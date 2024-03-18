@@ -207,4 +207,27 @@ ORDER BY DISPATCHDAY,
     salesinvoiceheader.INVOICEDATE >= current_date + 1 
     ORDER BY 
     salesheader.REQUIREDDATE, SALESHEADER.CUSTOMER`,
+
+  Ostendo_1: `select sysdatecreated, debuglog from SCRIPTDEBUGLOG 
+  where debuglog like '%Msg: Counter:%' order by SYSUNIQUEID desc rows 5;`, 
+  Ostendo_2: `select sysdatecreated, debuglog from SCRIPTDEBUGLOG order by SYSUNIQUEID desc rows 5;`,
+  Count: `select 
+  (
+  select count(*) as LJ_Count from Journalheader where
+  transactionstatus = 'Ready to Send' and
+  journaldate between cast('Now' as date)-30 and  'Now'
+  ) LJ,
+  (
+  select count(*) as LSI_Count from JournalInvheader where invoicetype = 'Sales' 
+  and
+  transactionstatus = 'Ready to Send' and
+  INVOICEDATE between cast('Now' as date)-30 and  'Now'
+  ) LSI,
+  (
+  select count(*) as LPI_Count from JournalInvheader where invoicetype = 'Purchase' 
+  and
+  transactionstatus = 'Ready to Send' and
+  INVOICEDATE between cast('Now' as date)-30 and  'Now'
+  )LPI
+  from RDB$DATABASE;`,
 };

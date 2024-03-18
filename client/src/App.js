@@ -3,8 +3,10 @@ import { Route, Routes, redirect } from "react-router-dom";
 import App1 from "./components/index";
 import Reports from "./components/report";
 import MOR from "./components/Reports/MissedSaleOrder";
+import Ccustomermissingschedule from "./components/Reports/Ccustomermissingschedule";
 import OrderForWrongDate from "./components/Reports/OrderForWrongDate";
 import ShadowOrderCheck from "./components/Reports/ShadowOrderCheck";
+import AccountingLinkMonitor from "./components/Reports/AccountingLinkMonitor";
 
 import DominosIndex from "./components/Orders/Dominos/Home";
 import DominosItems from "./components/Orders/Dominos/Items";
@@ -15,6 +17,14 @@ import WebItems from "./components/Orders/Web/Items";
 
 import CustomerIndex from "./components/Customers/index";
 import CustomerSchedules from "./components/Customers/Schedules";
+
+
+
+
+
+import PrintIndex from "./components/Print/Index";
+
+
 
 // ONLINE ORDER
 import Orderindex from "./components/OnlineOrder/index";
@@ -45,7 +55,7 @@ export default function App() {
           <Route path="/" element={<App1 />} />
           {/* REPORTS */}
           <Route path="/reports" element={<Reports />} />
-          <Route path="/reports/missedorderreport" element={<MOR />} />
+          <Route path="/reports/Ccustomermissingschedule" element={<Ccustomermissingschedule />} />
           <Route
             path="/reports/orderforwrongdate"
             element={<OrderForWrongDate />}
@@ -53,6 +63,10 @@ export default function App() {
           <Route
             path="/reports/ShadowOrderCheck"
             element={<ShadowOrderCheck />}
+          />
+          <Route
+            path="/reports/AccountingLinkMonitor"
+            element={<AccountingLinkMonitor />}
           />
           <Route
             path="/Order/Dominos"
@@ -110,6 +124,11 @@ export default function App() {
             element={<DasbhoardIndex />}
           />
 
+          {/* print */}
+          <Route
+            path="/Print/index"
+            element={<PrintIndex />}
+          />
 
           <Route
             path="/AAA"

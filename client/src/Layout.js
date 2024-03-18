@@ -27,6 +27,7 @@ import {
   UsersIcon,
   XMarkIcon,
   PlusCircleIcon,
+  PrinterIcon
 } from "@heroicons/react/24/outline";
 import {
   ChevronDownIcon,
@@ -45,6 +46,7 @@ const navigation = [
   { name: "Orders", href: "#/Order/Dominos", icon: PlusCircleIcon, current: false },
   { name: "Web Orders", href: "#/Order/weborder", icon: PlusCircleIcon, current: false },
   { name: "Customers", href: "#/Customers/index", icon: PlusCircleIcon, current: false },
+  { name: "Print Invoice", href: "#/Print/index", icon: PrinterIcon, current: false },
 ];
 // const teams = [
 //   { id: 1, name: "Heroicons", href: "#", initial: "H", current: false },

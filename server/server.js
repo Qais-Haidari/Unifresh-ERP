@@ -50,5 +50,11 @@ App.use("/onlineOrdering/web/", require("./Routes/OnlineOrdering/post"));
 
 // Users
 App.use("/Users", require("./Routes/Users/Get"));
+App.use("/Tests", require("./Routes/Test"));
+
+// OSTENDO ROUTES
+App.use("/Ostendo", require("./Routes/Ostendo/Get"));
+
+App.use("/KFC", require("./Routes/KFC/KFC_Festival"));
 
 App.listen(PORT, console.log(`SERVER START AT ${PORT}`));
