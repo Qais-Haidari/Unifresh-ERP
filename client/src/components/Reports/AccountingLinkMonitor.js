@@ -37,8 +37,8 @@ export default function AccountingLinkMonitor() {
     <div>
       <p className='mb-4 text-xl font-extrabold text-gray-900 dark:text-white md:text-5xl' >Accounting Link Monitor</p>
       <p className='mb-4 text-xl font-extrabold text-gray-900 dark:text-white md:text-5xl' >Journal Header: {JL[0].COUNT}</p>
-      <p className='mb-4 text-xl font-extrabold text-gray-900 dark:text-white md:text-5xl' >Journal Header Sales: {JLPurchase[0].LPI_COUNT}</p>
-      <p className='mb-4 text-xl font-extrabold text-gray-900 dark:text-white md:text-5xl' >Journal Header Purchase: {JLSales[0].LSI_COUNT}</p>
+      <p className='mb-4 text-xl font-extrabold text-gray-900 dark:text-white md:text-5xl' >Journal Header Purchase: {JLPurchase[0].LPI_COUNT}</p>
+      <p className='mb-4 text-xl font-extrabold text-gray-900 dark:text-white md:text-5xl' >Journal Header Sales: {JLSales[0].LSI_COUNT}</p>
     </div>
   )
 }
