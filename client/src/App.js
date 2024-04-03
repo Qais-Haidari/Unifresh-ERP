@@ -19,11 +19,13 @@ import CustomerIndex from "./components/Customers/index";
 import CustomerSchedules from "./components/Customers/Schedules";
 
 
-
-
-
 import PrintIndex from "./components/Print/Index";
 
+
+// Account Link Monitor.
+import Payments from "./components/AccountLinkMontor/Payments";
+import Purchase from "./components/AccountLinkMontor/Purchase";
+import Sales from "./components/AccountLinkMontor/Sales";
 
 
 // ONLINE ORDER
@@ -89,11 +91,19 @@ export default function App() {
           <Route
             path="/Customers/index"
             element={<CustomerIndex />}
-          />
+                      />
           <Route
             path="/Customers/Schedules/:id"
             element={<CustomerSchedules />}
           />
+
+          {/* Account Link Monitor */}
+          <Route path="/AccountLinkMonitor/Payments" element={<Payments />}/>
+          <Route path="/AccountLinkMonitor/Sales" element={<Sales />}/>
+          <Route path="/AccountLinkMonitor/Purcahse" element={<Purchase />}/>
+
+
+
           {/* ONLINE ORDER */}
           <Route
             path="/orderOnline"
@@ -139,9 +149,3 @@ export default function App() {
     );
   }
 }
-
-// else if(!localStorage.getItem('AdminLogin')) {
-//   return (
-//     <p>Admin Login</p>
-//   )   
-// }

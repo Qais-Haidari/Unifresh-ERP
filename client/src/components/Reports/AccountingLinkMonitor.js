@@ -35,10 +35,12 @@ export default function AccountingLinkMonitor() {
       } else {
   return (
     <div>
-      <p className='mb-4 text-xl font-extrabold text-gray-900 dark:text-white md:text-5xl' >Accounting Link Monitor</p>
-      <p className='mb-4 text-xl font-extrabold text-gray-900 dark:text-white md:text-5xl' >Journal Header: {JL[0].COUNT}</p>
-      <p className='mb-4 text-xl font-extrabold text-gray-900 dark:text-white md:text-5xl' >Journal Header Purchase: {JLPurchase[0].LPI_COUNT}</p>
-      <p className='mb-4 text-xl font-extrabold text-gray-900 dark:text-white md:text-5xl' >Journal Header Sales: {JLSales[0].LSI_COUNT}</p>
+      <p className='mb-4 text-xl font-extrabold text-white dark:text-white md:text-3xl text-center' >Accounting Link Monitor</p>
+    <div className='grid grid-cols-3 m-2 gap-1'>
+      <a href='#/AccountLinkMonitor/Payments' class="bg-blue-500 hover:bg-blue-700 text-center text-white font-bold py-2 px-4 border border-blue-700 rounded">Payments ( {JL[0].COUNT} )</a>
+      <a href='#/AccountLinkMonitor/Purcahse' class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 border border-blue-700 rounded text-center">Purchase ( {JLPurchase[0].LPI_COUNT} )</a>
+      <a href='#/AccountLinkMonitor/Sales' class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 border border-blue-700 text-center rounded">Sales ( {JLSales[0].LSI_COUNT} )</a>
+    </div>
     </div>
   )
 }

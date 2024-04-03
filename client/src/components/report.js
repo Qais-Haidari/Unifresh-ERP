@@ -43,6 +43,13 @@ const projects = [
     members: 8,
     bgColor: "bg-green-500",
   },
+  {
+    name: "Monitoring Scripts",
+    initials: "CS",
+    href: "#/reports/AccountingLinkMonitor",
+    members: 8,
+    bgColor: "bg-green-500",
+  },
 ];
 
 function classNames(...classes) {
