@@ -24,6 +24,7 @@ import PrintIndex from "./components/Print/Index";
 
 // Account Link Monitor.
 import Payments from "./components/AccountLinkMontor/Payments";
+import PaymentsHolding from "./components/AccountLinkMontor/Payments_Holding";
 import Purchase from "./components/AccountLinkMontor/Purchase";
 import Sales from "./components/AccountLinkMontor/Sales";
 
@@ -99,6 +100,7 @@ export default function App() {
 
           {/* Account Link Monitor */}
           <Route path="/AccountLinkMonitor/Payments" element={<Payments />}/>
+          <Route path="/AccountLinkMonitor/Payments_Holding" element={<PaymentsHolding />}/>
           <Route path="/AccountLinkMonitor/Sales" element={<Sales />}/>
           <Route path="/AccountLinkMonitor/Purcahse" element={<Purchase />}/>
 

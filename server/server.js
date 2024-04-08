@@ -54,6 +54,7 @@ App.use("/Tests", require("./Routes/Test"));
 
 // OSTENDO ROUTES
 App.use("/Ostendo", require("./Routes/Ostendo/Get"));
+App.use("/Ostendo", require("./Routes/Ostendo/Post"));
 
 App.use("/KFC", require("./Routes/KFC/KFC_Festival"));
 
