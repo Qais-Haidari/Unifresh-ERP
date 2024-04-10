@@ -50,17 +50,17 @@ export default function Example() {
     };
     setcordinates({ lat: -34.94916, lng: 138.64265 })
     axios
-          .get(`http://10.0.0.129:5000/Users/User/TodayOrder/${localStorage.getItem('!@#!@#asdacas!@#')}`)
+          .get(`http://10.0.0.140:5000/Users/User/TodayOrder/${localStorage.getItem('!@#!@#asdacas!@#')}`)
           .then((res) => {
             if (res.data[0].ORDERNUMBER) {
                 axios
-                .get(`http://10.0.0.129:5000/onlineOrdering/ordering/ETA/${res.data[0].ORDERNUMBER}`)
+                .get(`http://10.0.0.140:5000/onlineOrdering/ordering/ETA/${res.data[0].ORDERNUMBER}`)
                 .then((res) => {
                   setOrderItem(res.data)
                 }
                 ).catch((err) => (document.body.innerHTML = err));
                 axios
-                .get(`http://10.0.0.129:5000/Users/User/FourJourney/${res.data[0].ORDERNUMBER}`)
+                .get(`http://10.0.0.140:5000/Users/User/FourJourney/${res.data[0].ORDERNUMBER}`)
                 .then((res) => {
                   console.log(res.data)
                   setlat(res.data[0].driver_position[0])

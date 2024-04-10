@@ -7,6 +7,7 @@ import Ccustomermissingschedule from "./components/Reports/Ccustomermissingsched
 import OrderForWrongDate from "./components/Reports/OrderForWrongDate";
 import ShadowOrderCheck from "./components/Reports/ShadowOrderCheck";
 import AccountingLinkMonitor from "./components/Reports/AccountingLinkMonitor";
+import CutOfTimeChanges from "./components/Reports/CutOfTimeChanges";
 
 import DominosIndex from "./components/Orders/Dominos/Home";
 import DominosItems from "./components/Orders/Dominos/Items";
@@ -70,6 +71,10 @@ export default function App() {
           <Route
             path="/reports/AccountingLinkMonitor"
             element={<AccountingLinkMonitor />}
+          />
+          <Route
+            path="/reports/CutOfTimeChanges"
+            element={<CutOfTimeChanges />}
           />
           <Route
             path="/Order/Dominos"

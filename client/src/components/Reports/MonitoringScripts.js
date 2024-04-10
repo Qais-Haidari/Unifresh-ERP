@@ -9,19 +9,19 @@ export default function AccountingLinkMonitor() {
     useEffect(() => {
         setloading(true);
         axios
-      .get(`http://10.0.0.129:5000/Ostendo/AccountingLinkMonitor_JournalHeader`)
+      .get(`http://10.0.0.140:5000/Ostendo/AccountingLinkMonitor_JournalHeader`)
       .then((res) => {
         setJL(res.data);
       })
       .catch((err) => (document.body.innerHTML = err));
         axios
-      .get(`http://10.0.0.129:5000/Ostendo/AccountingLinkMonitor_JournalHeaderPurchase`)
+      .get(`http://10.0.0.140:5000/Ostendo/AccountingLinkMonitor_JournalHeaderPurchase`)
       .then((res) => {
         setJLPurchase(res.data);
       })
       .catch((err) => (document.body.innerHTML = err));
         axios
-      .get(`http://10.0.0.129:5000/Ostendo/AccountingLinkMonitor_JournalHeaderSales`)
+      .get(`http://10.0.0.140:5000/Ostendo/AccountingLinkMonitor_JournalHeaderSales`)
       .then((res) => {
         setJLSales(res.data);
         setloading(false)

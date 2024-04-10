@@ -18,6 +18,10 @@ const AccountingLinkMonitor_JournalHeaderSales_HOLD = require("../../Utils/Repor
 // Get Records
 const AccountingLinkMonitor_JournalHeaderSales_Get = require("../../Utils/Report/Ostendo/AccountingLinkMonitor_JournalHeader_Get");
 
+// Schedules Change
+const ScheduleChanges = require("../../Utils/Report/Ostendo/ScheduleChanges");
+const ScheduleChangesName = require("../../Utils/Report/Ostendo/ScheduleChangesName");
+
 
 // GET ALL Users
 Router.get("/SchedulesNames", async (req, res) => {
@@ -44,5 +48,10 @@ Router.get("/AccountingLinkMonitor_JournalHeaderSales_HOLD", async (req, res) =>
 // Change the Stauts of the Transctions in Local
 Router.get("/AccountingLinkMonitor/Hold", async (req, res) => { res.send(await AccountingLinkMonitor_JournalHeaderSales_HOLD(req.params.name))});
 Router.get("/AccountingLinkMonitor/Hold/Get", async (req, res) => { res.send(await AccountingLinkMonitor_JournalHeaderSales_Get(req.params.name))});
+
+
+// Change Customer Schedules BULK
+Router.get("/Schedule/Change/CutOfTime/:name/:time", async (req, res) => { res.send(await ScheduleChanges(req.params.name, req.params.time))});
+Router.get("/Schedule/Change/Customers/:state", async (req, res) => { res.send(await ScheduleChangesName(req.params.state))});
 
 module.exports = Router;

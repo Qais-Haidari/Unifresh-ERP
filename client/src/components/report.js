@@ -50,6 +50,13 @@ const projects = [
     members: 8,
     bgColor: "bg-green-500",
   },
+  {
+    name: "Cut Of Time Changes",
+    initials: "CS",
+    href: "#/reports/CutOfTimeChanges",
+    members: 8,
+    bgColor: "bg-green-500",
+  },
 ];
 
 function classNames(...classes) {

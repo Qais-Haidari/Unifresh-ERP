@@ -14,7 +14,7 @@ export default function Payments() {
 
 }, []);
 function Update(a,b){
-  // axios.post(`http://localhost:5000/Ostendo/AccountLink/Holder`, {
+  // axios.post(`http://10.0.0.140:5000/Ostendo/AccountLink/Holder`, {
   //   TraID: a,
   //   status: "Holder",
   //   list: "Payments",

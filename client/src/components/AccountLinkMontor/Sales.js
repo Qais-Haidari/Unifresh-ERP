@@ -5,7 +5,7 @@ export default function Payments() {
   const [state, setstate] = useState([]);
   useEffect(() => {
     axios
-  .get(`http://10.0.0.129:5000/Ostendo/AccountingLinkMonitor_JournalHeaderSales_Statment`)
+  .get(`http://10.0.0.140:5000/Ostendo/AccountingLinkMonitor_JournalHeaderSales_Statment`)
   .then((res) => {
     setstate(res.data);
     console.log(res.data)

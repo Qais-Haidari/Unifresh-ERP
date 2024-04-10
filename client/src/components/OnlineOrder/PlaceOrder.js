@@ -43,14 +43,14 @@ export default function OnlineOrder() {
 
   useEffect(() => {
     axios
-      .get(`http://10.0.0.129:5000/Users/User/OrderItem/${localStorage.getItem('!@#!@#asdacas!@#')}`, { timeout: 50000 })
+      .get(`http://10.0.0.140:5000/Users/User/OrderItem/${localStorage.getItem('!@#!@#asdacas!@#')}`, { timeout: 50000 })
       .then((res) => {
         setOrderItems(res.data)
       }
       ).catch((err) => (document.body.innerHTML = err));
 
       axios
-      .get(`http://10.0.0.129:5000/Users/User/OrderDateCheck/Hungry Jacks Aberfoyle Park`)
+      .get(`http://10.0.0.140:5000/Users/User/OrderDateCheck/Hungry Jacks Aberfoyle Park`)
       .then((res) => {
 
         // setOrderItems(res.data)
@@ -59,7 +59,7 @@ export default function OnlineOrder() {
       ).catch((err) => (document.body.innerHTML = err));
       
       axios
-          .get(`http://10.0.0.129:5000/Users/User/OrderScheduleCheck/${localStorage.getItem('!@#!@#asdacas!@#')}`)
+          .get(`http://10.0.0.140:5000/Users/User/OrderScheduleCheck/${localStorage.getItem('!@#!@#asdacas!@#')}`)
           .then((res) => {
             let Monday = [];
             let Tuesday = []; 
@@ -116,7 +116,7 @@ export default function OnlineOrder() {
  
   const submit = () => {
       axios
-          .post("http://10.0.0.129:5000/onlineOrdering/web/CreateOrder", {
+          .post("http://10.0.0.140:5000/onlineOrdering/web/CreateOrder", {
             PONumber: Purchaseordernumber,
             OrderItems: SelectItems,
             OrderDate: SelectDate,
