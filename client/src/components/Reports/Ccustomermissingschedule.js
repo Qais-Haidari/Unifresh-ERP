@@ -21,7 +21,7 @@ export default function Ccustomermissingschedule() {
   const Action = (e) => {
     setloading(true)
     axios
-      .get(`http://localhost:5000/Ostendo/MissingCustomerSchedules/${Name}`)
+      .get(`http://10.0.0.140:5000/Ostendo/MissingCustomerSchedules/${Name}`)
       .then((res) => {
         setsec(res.data);
         setloading(false)
