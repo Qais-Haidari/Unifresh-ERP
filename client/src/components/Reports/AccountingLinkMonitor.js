@@ -29,10 +29,9 @@ export default function AccountingLinkMonitor() {
       })
       .catch((err) => (document.body.innerHTML = err));
         axios
-      .get(`http://localhost:5000/Ostendo/users/ostnedo`)
+      .get(`http://10.0.0.140:5000/Ostendo/users/ostnedo`)
       .then((res) => {
         setOstendoUsers(res.data);
-        console.log(res.data)
         setloading(false)
       })
       .catch((err) => (document.body.innerHTML = err));
