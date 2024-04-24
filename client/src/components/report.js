@@ -53,9 +53,23 @@ const projects = [
   {
     name: "Cut Of Time Changes",
     initials: "CS",
-    href: "#/reports/CutOfTimeChanges",
+    href: "#/reports/FailedOrder",
     members: 8,
     bgColor: "bg-green-500",
+  },
+  {
+    name: "Failed Order From Website",
+    initials: "CS",
+    href: "#/reports/FailedOrder",
+    members: 8,
+    bgColor: "bg-red-600",
+  },
+  {
+    name: "Weekly Reports, KFC Vendors",
+    initials: "CS",
+    href: "#/reports/ReportKFCVendor",
+    members: 8,
+    bgColor: "bg-red-600",
   },
 ];
 

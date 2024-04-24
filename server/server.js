@@ -58,4 +58,7 @@ App.use("/Ostendo", require("./Routes/Ostendo/Post"));
 
 App.use("/KFC", require("./Routes/KFC/KFC_Festival"));
 
+// REPORT ROUTES
+App.use("/Report", require("./Routes/Reports/Get"));
+
 App.listen(PORT, console.log(`SERVER START AT ${PORT}`));

@@ -35,7 +35,6 @@ export default function AccountingLinkMonitor() {
       } else {
   return (
     <div>
-        <p>mon</p>
       <p className='mb-4 text-xl font-extrabold text-gray-900 dark:text-white md:text-5xl' >Accounting Link Monitor</p>
       <p className='mb-4 text-xl font-extrabold text-gray-900 dark:text-white md:text-5xl' >Journal Header: {JL[0].COUNT}</p>
       <p className='mb-4 text-xl font-extrabold text-gray-900 dark:text-white md:text-5xl' >Journal Header Purchase: {JLPurchase[0].LPI_COUNT}</p>

@@ -18,9 +18,17 @@ const AccountingLinkMonitor_JournalHeaderSales_HOLD = require("../../Utils/Repor
 // Get Records
 const AccountingLinkMonitor_JournalHeaderSales_Get = require("../../Utils/Report/Ostendo/AccountingLinkMonitor_JournalHeader_Get");
 
+// RETURN REPORT FROM SCRIPT
+const ReturnScriptData = require("../../Utils/ReturnScriptData");
+
+// OSTENDO USRS
+const OstendoUsers = require("../../Utils/Report/Ostendo/OstendoUsers");
+
 // Schedules Change
 const ScheduleChanges = require("../../Utils/Report/Ostendo/ScheduleChanges");
 const ScheduleChangesName = require("../../Utils/Report/Ostendo/ScheduleChangesName");
+// Failed Order Report
+const FailedOrderReport = require("../../Utils/Report/Ostendo/FailedOrderReport");
 
 
 // GET ALL Users
@@ -53,5 +61,14 @@ Router.get("/AccountingLinkMonitor/Hold/Get", async (req, res) => { res.send(awa
 // Change Customer Schedules BULK
 Router.get("/Schedule/Change/CutOfTime/:name/:time", async (req, res) => { res.send(await ScheduleChanges(req.params.name, req.params.time))});
 Router.get("/Schedule/Change/Customers/:state", async (req, res) => { res.send(await ScheduleChangesName(req.params.state))});
+
+// Failed Order Report
+Router.get("/Web/Failed/:date", async (req, res) => { res.send(await FailedOrderReport(req.params.date))});
+
+// RETUNR THE SCRIPTS DATA
+Router.get("/Script/data/return/:scripts", async (req, res) => { res.send(await ReturnScriptData(req.params.scripts))});
+
+// OSTENDO USERS
+Router.get("/users/ostnedo", async (req, res) => { res.send(await OstendoUsers())});
 
 module.exports = Router;

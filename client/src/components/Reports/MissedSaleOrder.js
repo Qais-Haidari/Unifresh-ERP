@@ -5,6 +5,7 @@ import axios from "axios";
 export default function MissedSaleOrder() {
   const [loading, setloading] = useState(false);
   const [state, setstate] = useState([]);
+  
   useEffect(() => {
     setloading(true);
     axios
@@ -15,7 +16,7 @@ export default function MissedSaleOrder() {
       })
       .catch((err) => (document.body.innerHTML = err));
   }, []);
-
+  console.log('as')
   if (loading === true) {
     return (
       <Layout>

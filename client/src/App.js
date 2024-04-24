@@ -8,6 +8,8 @@ import OrderForWrongDate from "./components/Reports/OrderForWrongDate";
 import ShadowOrderCheck from "./components/Reports/ShadowOrderCheck";
 import AccountingLinkMonitor from "./components/Reports/AccountingLinkMonitor";
 import CutOfTimeChanges from "./components/Reports/CutOfTimeChanges";
+import FailedOrder from "./components/Reports/FailedOrder";
+import ReportKFCVendor from "./components/Reports/ReportKFCVendor";
 
 import DominosIndex from "./components/Orders/Dominos/Home";
 import DominosItems from "./components/Orders/Dominos/Items";
@@ -75,6 +77,14 @@ export default function App() {
           <Route
             path="/reports/CutOfTimeChanges"
             element={<CutOfTimeChanges />}
+          />
+          <Route
+            path="/reports/FailedOrder"
+            element={<FailedOrder />}
+          />
+          <Route
+            path="/reports/ReportKFCVendor"
+            element={<ReportKFCVendor />}
           />
           <Route
             path="/Order/Dominos"

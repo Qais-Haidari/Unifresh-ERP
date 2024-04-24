@@ -17,7 +17,6 @@ const [Loading, setLoading] = useState(false);
       <Layout>
       <div>
         <h1 className='text-left text-white font-bold text-xl ml-2 my-2'>Customer Web Orders</h1>
-        
       </div>
       </Layout>
     )
