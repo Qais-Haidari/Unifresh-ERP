@@ -1,11 +1,12 @@
 import React, { useState, useEffect } from 'react'
 import axios from "axios";
+import { URL } from '../../Utils/URL';
 
 export default function Payments() {
   const [state, setstate] = useState([]);
   useEffect(() => {
     axios
-  .get(`http://10.0.0.140:5000/Ostendo/AccountingLinkMonitor/Hold/Get`)
+  .get(`${URL}/Ostendo/AccountingLinkMonitor/Hold/Get`)
   .then((res) => {
     setstate(res.data);
     console.log(res.data)

@@ -50,7 +50,7 @@ const people = [
         // })
         //     .catch((err) => (document.body.innerHTML = err));
         axios
-                .get(`http://10.0.0.140:5000/onlineOrdering/ViewDocuments/10/Dominos Glenelg`)
+                .get(`http://10.0.0.52:5000/onlineOrdering/ViewDocuments/10/Dominos Glenelg`)
             .then((res) => {
                 setstate(res.data)
         })

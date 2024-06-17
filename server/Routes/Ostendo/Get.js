@@ -30,6 +30,16 @@ const ScheduleChangesName = require("../../Utils/Report/Ostendo/ScheduleChangesN
 // Failed Order Report
 const FailedOrderReport = require("../../Utils/Report/Ostendo/FailedOrderReport");
 
+// EDI CUSTOMER DETAIL
+const EDICustomerDetail = require("../../Utils/Report/Ostendo/EDICustomerDetail");
+const EDICustomerCred = require("../../Utils/Report/Ostendo/EDICustomerCred");
+// EDI CUSTOMER DETAIL ORDER SCHEDULES
+const EDICustomerScheduleDetail = require("../../Utils/Report/Ostendo/EDICustomerScheduleDetail");
+
+const CustomerList = require("../../Utils/Report/Ostendo/CustomerList");
+const CustomerInvoice = require("../../Utils/Report/Ostendo/CustomerInvoice");
+const Flash_List = require("../../Utils/Report/Ostendo/Flash_List");
+
 
 // GET ALL Users
 Router.get("/SchedulesNames", async (req, res) => {
@@ -71,4 +81,21 @@ Router.get("/Script/data/return/:scripts", async (req, res) => { res.send(await 
 // OSTENDO USERS
 Router.get("/users/ostnedo", async (req, res) => { res.send(await OstendoUsers())});
 
+
+// EDI ROUTES
+
+// GET CUSTOMER DEATILS [ USERNAME CUSTOMEREMAIL ]
+Router.get("/EDI/CUSTOMER/DETAIL/:StoreNumber", async (req, res) => { res.send(await EDICustomerDetail(req.params.StoreNumber))});
+// GET CUSTOMER DEATILS [ ORDER SCHEDULES ]
+Router.get("/EDI/CUSTOMER/SCHEDULE/DETAIL/:customer", async (req, res) => { res.send(await EDICustomerScheduleDetail(req.params.customer))});
+// GET CUSTOMER DETAIL [ CUSTOMER LIST ]
+Router.get("/EDI/CUSTOMER/CUSTOMERLIST/:customer", async (req, res) => { res.send(await CustomerList(req.params.customer))});
+// GET INVOICE DETAILS
+Router.get("/EDI/CUSTOMER/INVOICE/:number", async (req, res) => { res.send(await CustomerInvoice(req.params.number))});
+
+
+// FLASH SOFTWARE SUPPORT
+
+// List of Items
+Router.get("/FLASH/ITEMS/LIST", async (req, res) => { res.send(await Flash_List())});
 module.exports = Router;

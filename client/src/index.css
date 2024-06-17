@@ -63,3 +63,7 @@ code {
 .b-green {
   background-color: #74aa50;
 }
+
+.rotate {
+  rotate: 120px;
+}

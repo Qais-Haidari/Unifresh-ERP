@@ -10,7 +10,7 @@ const [Loading, setLoading] = useState(false);
     setLoading(true)
     axios
       .get(
-        `http://10.0.0.140:5000/Dominos/Orders/get`
+        `http://10.0.0.52:5000/Dominos/Orders/get`
       )
       .then((res) => {
         setstate(res.data);

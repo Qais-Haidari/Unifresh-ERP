@@ -8,7 +8,7 @@ export default function MissedSaleOrder() {
   useEffect(() => {
     setloading(true);
     axios
-      .get(`http://10.0.0.140:5000/OrderForWrongDate`)
+      .get(`http://10.0.0.52:5000/OrderForWrongDate`)
       .then((res) => {
         setstate(res.data);
         setloading(false);

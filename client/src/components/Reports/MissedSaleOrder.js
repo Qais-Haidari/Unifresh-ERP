@@ -9,7 +9,7 @@ export default function MissedSaleOrder() {
   useEffect(() => {
     setloading(true);
     axios
-      .get(`http://10.0.0.140:5000/MissedSalesOrder`)
+      .get(`http://10.0.0.52:5000/MissedSalesOrder`)
       .then((res) => {
         setstate(res.data);
         setloading(false);

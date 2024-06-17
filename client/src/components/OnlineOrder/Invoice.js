@@ -8,7 +8,7 @@ export default function Invoice() {
 	useEffect(() => {
     document.title = 'Unifresh Invoice'
     axios
-          .get(`http://10.0.0.140:5000/onlineOrdering/invoices/${invoice}`)
+          .get(`http://10.0.0.52:5000/onlineOrdering/invoices/${invoice}`)
           .then((res) => {
             setinvoices(res.data)
             // console.log(res.data)
@@ -16,7 +16,7 @@ export default function Invoice() {
           }
           ).catch((err) => (document.body.innerHTML = err));
     // axios
-    //       .get(`http://10.0.0.140:5000/Users/User/Test 8`)
+    //       .get(`http://10.0.0.52:5000/Users/User/Test 8`)
     //       .then((res) => {
     //         console.log(res.data)
     //       }

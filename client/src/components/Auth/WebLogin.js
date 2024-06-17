@@ -1,12 +1,13 @@
 import Axios from "axios";
 import React, { useState } from "react";
 // const convert = require("xml-js");
+import { URL } from '../../Utils/URL';
 
 export default function Auth() {
   const [Username, setUsername] = useState("");
   const [Password, setPassword] = useState("");
   const GetDetail = (e) => {
-    Axios.get(`http://10.0.0.140:5000/Auth/WebLogin/Login/${Username}/${Password}`)
+    Axios.get(`${URL}/Auth/WebLogin/Login/${Username}/${Password}`)
       .then((res) => {
         if (res.data[0].CUSTOMER === '') {
           alert('Username or Passowrd is incorrect');
