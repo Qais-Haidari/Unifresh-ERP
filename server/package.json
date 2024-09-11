@@ -14,6 +14,7 @@
     "@hendt/xml2json": "^1.0.3",
     "antd": "^4.7.0",
     "axios": "^0.20.0",
+    "bcrypt": "^5.1.1",
     "concurrently": "^5.2.0",
     "contentful-cli": "^2.8.24",
     "convert-excel-to-json": "^1.7.0",

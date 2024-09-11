@@ -5,7 +5,7 @@ const Development = 'http://localhost:5000';
 const Freeze = false;
 let URL_ = '';
 
-let OnOff = true;
+let OnOff = false;
 if (OnOff === false) {
     URL_ = Development;
 }else {

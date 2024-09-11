@@ -7,17 +7,10 @@ export default function Auth() {
   const [Username, setUsername] = useState("");
   const [Password, setPassword] = useState("");
   const GetDetail = (e) => {
-    Axios.get(`${URL}/Auth/WebLogin/Login/${Username}/${Password}`)
-      .then((res) => {
-        if (res.data[0].CUSTOMER === '') {
-          alert('Username or Passowrd is incorrect');
-        }else {
-          Axios.post(`http://10.0.0.124:5000/Auth/createhash`, { username: Username, pass: Password}).then(res => {
-            localStorage.setItem('$@#G%%#$F@#$', res.data);
-            localStorage.setItem('WebLogin', 1)
-            window.location.reload()
-          }).catch(err => console.log(err))
-        }
+    Axios.get(`${URL}/Auth/WebLogin/Login/${Username}/${Password}`).then((res) => {
+        if (res.data[0].CUSTOMER === '') {alert('Username or Passowrd is incorrect');
+        }else {localStorage.setItem('WebLogin', 1);localStorage.setItem('!@#!@#asdacas!@#', res.data[0].CUSTOMER);
+          localStorage.setItem('!@#S@SDA!@#', Username);localStorage.setItem('$@#G%%#$F@#$', Password); window.location.reload()}
       }).catch((err) => (document.body.innerHTML = err));
   };
 
