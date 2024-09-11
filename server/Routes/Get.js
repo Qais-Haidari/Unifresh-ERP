@@ -6,9 +6,12 @@ const ShadowOrderCheck = require("../Utils/ShadowOrderCheck");
 const Customer = require("../Utils/Customers");
 const IPCA_V3 = require("../Utils/IPCA_V3");
 const CustomerSchedules = require("../Utils/CustomerSchedules");
+const OrderMatrix = require("../Utils/OrderMatrix");
+const Test = require("../Utils/Test");
+const Local_API_Auth = require('../Middleware/Local-API-Auth')
 
 // GET ALL Users
-Router.get("/MissedSalesOrder", async (req, res) => {
+Router.get("/MissedSalesOrder", Local_API_Auth, async (req, res) => {
   res.send(await Get_Request());
 });
 
@@ -31,4 +34,11 @@ Router.get("/IPCA_V3/:start/:end", async (req, res) => {
 Router.get("/Customer/Schedules/:id", async (req, res) => {
   res.send(await CustomerSchedules(req.params.id));
 });
+
+Router.get("/Customer/OrderMatrix/:start/:end/:customer", async (req, res) => {
+  res.send(await OrderMatrix(req.params.start, req.params.end, req.params.customer));
+});
+
+Router.get("/Report/Test", async (req, res) => { res.send(await Test()) });
+
 module.exports = Router;

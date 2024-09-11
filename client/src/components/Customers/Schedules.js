@@ -11,7 +11,7 @@ const { id } = useParams();
     setLoading(true)
     axios
       .get(
-        `http://10.0.0.52:5000/Customer/Schedules/${id}`
+        `${URL}/Customer/Schedules/${id}`
       )
       .then((res) => {
         setstate(res.data);
@@ -19,8 +19,6 @@ const { id } = useParams();
       })
       .catch((err) => (document.body.innerHTML = err));
   }, []);
-
-  console.log(state)
 
   if (!state) {
     return (<p>Loading</p>)

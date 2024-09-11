@@ -12,11 +12,11 @@ export default function Auth() {
         if (res.data[0].CUSTOMER === '') {
           alert('Username or Passowrd is incorrect');
         }else {
-          localStorage.setItem('!@#!@#asdacas!@#', res.data[0].CUSTOMER);
-          localStorage.setItem('!@#S@SDA!@#', Username);
-          localStorage.setItem('$@#G%%#$F@#$', Password);
-          localStorage.setItem('WebLogin', 1)
-          window.location.reload()
+          Axios.post(`http://10.0.0.124:5000/Auth/createhash`, { username: Username, pass: Password}).then(res => {
+            localStorage.setItem('$@#G%%#$F@#$', res.data);
+            localStorage.setItem('WebLogin', 1)
+            window.location.reload()
+          }).catch(err => console.log(err))
         }
       }).catch((err) => (document.body.innerHTML = err));
   };
@@ -25,11 +25,6 @@ export default function Auth() {
     <div className="">
       <section class="bg-green dark:bg-gray-900">
         <div class="flex flex-col items-center justify-center px-6 py-8 mx-auto md:h-screen lg:py-0">
-          {/* <img
-            class=" w-52 rounded-xl mb-2"
-            src={require("./logo (1).jpg")}
-            alt="logo"
-          /> */}
           <div class="w-full bg-white rounded-lg shadow dark:border md:mt-0 sm:max-w-md xl:p-0 dark:bg-gray-800 dark:border-gray-700">
             <div class="p-6 space-y-4 md:space-y-6 sm:p-8">
               <h1 class="text-xl font-bold leading-tight tracking-tight text-gray-900 md:text-2xl dark:text-white">

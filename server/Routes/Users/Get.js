@@ -10,9 +10,7 @@ const FindTodayOrder = require("../../Utils/Users/FindTodayOrder");
 const FourJourney = require("../../Controller/Customers/FourJourney");
 
 // GET ALL Users
-Router.get("/User/:user", async (req, res) => {
-  res.send(await GetUser(req.params.user));
-});
+Router.get("/User/:user", async (req, res) => {res.send(await GetUser(req.params.user))});
 
 // GET User Order List
 Router.get("/User/OrderItem/:user", async (req, res) => {

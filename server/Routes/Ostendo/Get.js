@@ -33,6 +33,7 @@ const FailedOrderReport = require("../../Utils/Report/Ostendo/FailedOrderReport"
 // EDI CUSTOMER DETAIL
 const EDICustomerDetail = require("../../Utils/Report/Ostendo/EDICustomerDetail");
 const EDICustomerCred = require("../../Utils/Report/Ostendo/EDICustomerCred");
+
 // EDI CUSTOMER DETAIL ORDER SCHEDULES
 const EDICustomerScheduleDetail = require("../../Utils/Report/Ostendo/EDICustomerScheduleDetail");
 
@@ -40,15 +41,12 @@ const CustomerList = require("../../Utils/Report/Ostendo/CustomerList");
 const CustomerInvoice = require("../../Utils/Report/Ostendo/CustomerInvoice");
 const Flash_List = require("../../Utils/Report/Ostendo/Flash_List");
 
+// NILORDER CHECK
+const NILORDER_Check = require("../../Utils/Report/Ostendo/NILORDER_Check");
 
 // GET ALL Users
-Router.get("/SchedulesNames", async (req, res) => {
-  res.send(await SchedulesNames());
-});
-
-Router.get("/MissingCustomerSchedules/:name", async (req, res) => {
-  res.send(await MissingCustomerSchedules(req.params.name));
-});
+Router.get("/SchedulesNames", async (req, res) => { res.send(await SchedulesNames()) });
+Router.get("/MissingCustomerSchedules/:name", async (req, res) => { res.send(await MissingCustomerSchedules(req.params.name)) });
 
 // ///////////////////////////////////////////////////////
 Router.get("/AccountingLinkMonitor_JournalHeader", async (req, res) => { res.send(await AccountingLinkMonitor_JournalHeader(req.params.name)) });
@@ -80,6 +78,10 @@ Router.get("/Script/data/return/:scripts", async (req, res) => { res.send(await 
 
 // OSTENDO USERS
 Router.get("/users/ostnedo", async (req, res) => { res.send(await OstendoUsers())});
+
+// NILORDER CHECK
+Router.get("/Order/nilordercheck/:customer/:start/:end", async (req, res) => { res.send(await NILORDER_Check(req.params.customer, req.params.start, req.params.end))});
+
 
 
 // EDI ROUTES

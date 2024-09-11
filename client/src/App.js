@@ -5,6 +5,7 @@ import Reports from "./components/report";
 import Ccustomermissingschedule from "./components/Reports/Ccustomermissingschedule";
 import OrderForWrongDate from "./components/Reports/OrderForWrongDate";
 import ShadowOrderCheck from "./components/Reports/ShadowOrderCheck";
+import OrderMatrix from "./components/Reports/OrderMatrix";
 import AccountingLinkMonitor from "./components/Reports/AccountingLinkMonitor";
 import CutOfTimeChanges from "./components/Reports/CutOfTimeChanges";
 import FailedOrder from "./components/Reports/FailedOrder";
@@ -30,10 +31,18 @@ import WebLogin from "./components/Auth/WebLogin";
 import DasbhoardIndex from "./components/Dashboard/index";
 import Test from "./components/OnlineOrder/Test";
 import PrintLabels from "./components/PrintLabels/index";
+import OrderMatrixIndex from "./components/Customers/OrderMatrix/index";
+import OrderMatrixDashboard from "./components/Customers/OrderMatrix/Dashboard";
+
+import OrderMatrixMatrix from "./components/Customers/OrderMatrix/Pages/Matrix";
+import OrderMatrixProfile from "./components/Customers/OrderMatrix/Pages/Profile";
+import OrderMatrixShadow from "./components/Customers/OrderMatrix/Pages/Shadow";
+import SendSalesReport from "./components/Reports/SendSalesReport";
+
 
 export default function App() {
-  if (!localStorage.getItem("WebLogin")) {
-    return <WebLogin />;
+   if( !localStorage.getItem("WebLogin")) {
+      return <WebLogin />;
   } else {
     return (
       <div className="">
@@ -41,31 +50,15 @@ export default function App() {
           <Route path="/" element={<App1 />} />
           {/* REPORTS */}
           <Route path="/reports" element={<Reports />} />
-          <Route
-            path="/reports/Ccustomermissingschedule"
-            element={<Ccustomermissingschedule />}
-          />
-          <Route
-            path="/reports/orderforwrongdate"
-            element={<OrderForWrongDate />}
-          />
-          <Route
-            path="/reports/ShadowOrderCheck"
-            element={<ShadowOrderCheck />}
-          />
-          <Route
-            path="/reports/AccountingLinkMonitor"
-            element={<AccountingLinkMonitor />}
-          />
-          <Route
-            path="/reports/CutOfTimeChanges"
-            element={<CutOfTimeChanges />}
-          />
+          <Route path="/reports/Ccustomermissingschedule" element={<Ccustomermissingschedule />} />
+          <Route path="/reports/orderforwrongdate" element={<OrderForWrongDate />} />
+          <Route path="/reports/ShadowOrderCheck" element={<ShadowOrderCheck />} />
+          <Route path="/reports/AccountingLinkMonitor" element={<AccountingLinkMonitor />} />
+          <Route path="/reports/OrderMatrix" element={<OrderMatrix />} />
+          <Route path="/reports/CutOfTimeChanges" element={<CutOfTimeChanges />} />
           <Route path="/reports/FailedOrder" element={<FailedOrder />} />
-          <Route
-            path="/reports/ReportKFCVendor"
-            element={<ReportKFCVendor />}
-          />
+          <Route path="/reports/ReportKFCVendor" element={<ReportKFCVendor />} />
+          <Route path="/reports/SendSalesReport" element={<SendSalesReport />} />
           <Route path="/Order/Dominos" element={<DominosIndex />} />
           {/* WEB */}
           <Route path="/Order/weborder" element={<WebIndex />} />
@@ -73,17 +66,11 @@ export default function App() {
           {/*  */}
           <Route path="/Order/Dominos/Item/:id" element={<DominosItems />} />
           <Route path="/Customers/index" element={<CustomerIndex />} />
-          <Route
-            path="/Customers/Schedules/:id"
-            element={<CustomerSchedules />}
-          />
+          <Route path="/Customers/Schedules/:id" element={<CustomerSchedules />} />
 
           {/* Account Link Monitor */}
           <Route path="/AccountLinkMonitor/Payments" element={<Payments />} />
-          <Route
-            path="/AccountLinkMonitor/Payments_Holding"
-            element={<PaymentsHolding />}
-          />
+          <Route path="/AccountLinkMonitor/Payments_Holding" element={<PaymentsHolding />} />
           <Route path="/AccountLinkMonitor/Sales" element={<Sales />} />
           <Route path="/AccountLinkMonitor/Purcahse" element={<Purchase />} />
 
@@ -105,6 +92,14 @@ export default function App() {
           {/* print */}
           <Route path="/Print/index" element={<PrintIndex />} />
           <Route path="/Print/Label" element={<PrintLabels />} />
+          
+          
+          {/* Order Matrix */}
+          <Route path="/OrderMatrix/index" element={<OrderMatrixIndex />} />
+          <Route path="/OrderMatrix/dashboard" element={<OrderMatrixDashboard />} />
+          <Route path="/OrderMatrix/Matrix" element={<OrderMatrixMatrix />} />
+          <Route path="/OrderMatrix/Profile" element={<OrderMatrixProfile />} />
+          <Route path="/OrderMatrix/Shadow" element={<OrderMatrixShadow />} />
 
           <Route path="/AAA" element={<Test />} />
         </Routes>

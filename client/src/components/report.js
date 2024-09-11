@@ -71,6 +71,20 @@ const projects = [
     members: 8,
     bgColor: "bg-red-600",
   },
+  {
+    name: "Order Matrix",
+    initials: "OM",
+    href: "#/reports/OrderMatrix",
+    members: 8,
+    bgColor: "bg-red-600",
+  },
+  {
+    name: "SendSalesReport",
+    initials: "SR",
+    href: "#/reports/SendSalesReport",
+    members: 8,
+    bgColor: "bg-red-600",
+  },
 ];
 
 function classNames(...classes) {

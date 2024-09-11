@@ -20,14 +20,12 @@ Router.post("/CreateOrder", (req, res) => {
         OrderDate: req.body.OrderDate,
         Date: moment()
     });
-    console.log(CreateOrder)
       CreateOrder.save(function (err, result) {
         if (err) {
           console.log(err);
         } else {
           console.log("Order Created");
         }
-        // res.send("data saved");
       });
     for (let index = 0; index < req.body.OrderItems.length; index++) {
         const element = req.body.OrderItems[index];

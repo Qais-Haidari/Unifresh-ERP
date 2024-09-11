@@ -10,26 +10,26 @@ export default function AccountingLinkMonitor() {
     useEffect(() => {
         setloading(true);
         axios
-      .get(`http://10.0.0.52:5000/Ostendo/AccountingLinkMonitor_JournalHeader`)
+      .get(`${URL}/Ostendo/AccountingLinkMonitor_JournalHeader`)
       .then((res) => {
         setJL(res.data);
       })
       .catch((err) => (document.body.innerHTML = err));
         axios
-      .get(`http://10.0.0.52:5000/Ostendo/AccountingLinkMonitor_JournalHeaderPurchase`)
+      .get(`${URL}/Ostendo/AccountingLinkMonitor_JournalHeaderPurchase`)
       .then((res) => {
         setJLPurchase(res.data);
       })
       .catch((err) => (document.body.innerHTML = err));
         axios
-      .get(`http://10.0.0.52:5000/Ostendo/AccountingLinkMonitor_JournalHeaderSales`)
+      .get(`${URL}/Ostendo/AccountingLinkMonitor_JournalHeaderSales`)
       .then((res) => {
         setJLSales(res.data);
         setloading(false)
       })
       .catch((err) => (document.body.innerHTML = err));
         axios
-      .get(`http://10.0.0.52:5000/Ostendo/users/ostnedo`)
+      .get(`${URL}/Ostendo/users/ostnedo`)
       .then((res) => {
         setOstendoUsers(res.data);
         setloading(false)

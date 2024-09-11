@@ -7,6 +7,7 @@ const App = Express();
 const PORT = 5000;
 const morgan = require("morgan");
 const hpp = require("hpp");
+// const Local_Middleware = require('./Middleware/Local-API-Auth')
 
 // MIDDLE WARES
 App.use(Express.json());
@@ -15,6 +16,7 @@ App.use(Helmet());
 App.use(Cors("*"));
 App.use(morgan("tiny"));
 App.use(hpp());
+// App.use(Local_Middleware());
 
 
 Mongoose.connect("mongodb://127.0.0.1:27017/orders", {
@@ -60,5 +62,10 @@ App.use("/KFC", require("./Routes/KFC/KFC_Festival"));
 
 // REPORT ROUTES
 App.use("/Report", require("./Routes/Reports/Get"));
+
+// Public API @GET
+App.use("/API/v/1/", require('./Routes/API/V1/Get'))
+// // Public API @POST
+// App.use("/API/v/1", require('./Routes/API/V1/Post'))
 
 App.listen(PORT, console.log(`SERVER START AT ${PORT}`));

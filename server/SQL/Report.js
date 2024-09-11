@@ -186,7 +186,7 @@ ORDER BY DISPATCHDAY,
     from 
     salesheader
     where 
-    salesheader.REQUIREDDATE >= current_date + 1 and 
+    salesheader.REQUIREDDATE >= current_date + 2 and 
     salesheader.SYSUNIQUEID not in 
     (select 
     salesheader.SYSUNIQUEID 
@@ -198,13 +198,13 @@ ORDER BY DISPATCHDAY,
     salesinvoiceheader.INVOICENUMBER = salesinvoicegrouping.INVOICENUMBER and 
     salesheader.ORDERNUMBER = salesinvoicegrouping.ORDERNUMBER and 
     salesheader.ORDERNOTES = 'Shadow Order' and 
-    salesinvoiceheader.INVOICEDATE >= current_date + 1)) JN on JN.CUSTOMER = salesheader.CUSTOMER AND JN.REQUIREDDATE = salesheader.REQUIREDDATE 
+    salesinvoiceheader.INVOICEDATE >= current_date + 2)) JN on JN.CUSTOMER = salesheader.CUSTOMER AND JN.REQUIREDDATE = salesheader.REQUIREDDATE 
     where 
     salesinvoiceheader.INVOICENUMBER = salesinvoicegrouping.INVOICENUMBER and 
     salesheader.ORDERNUMBER = salesinvoicegrouping.ORDERNUMBER and 
     salesheader.ORDERNOTES = 'Shadow Order' and 
     salesinvoiceheader.INVOICETOTALAMOUNT > 0 and 
-    salesinvoiceheader.INVOICEDATE >= current_date + 1 
+    salesinvoiceheader.INVOICEDATE >= current_date + 2
     ORDER BY 
     salesheader.REQUIREDDATE, SALESHEADER.CUSTOMER`,
 
@@ -218,7 +218,7 @@ ORDER BY DISPATCHDAY,
   journaldate between cast('Now' as date)-30 and  'Now'
   ) LJ,
   (
-  select count(*) as LSI_Count from JournalInvheader where invoicetype = 'Sales' 
+  select count(*) as LSI_Count from JournalInvheader where invoicetype = 'Sales'
   and
   transactionstatus = 'Ready to Send' and
   INVOICEDATE between cast('Now' as date)-30 and  'Now'

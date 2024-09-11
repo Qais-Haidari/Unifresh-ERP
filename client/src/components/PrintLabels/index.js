@@ -6,7 +6,7 @@ export default function AccountingLinkMonitor() {
     const [state, setstate] = useState();
     useEffect(() => {
         axios
-      .get(`http://localhost:5000/Ostendo/FLASH/ITEMS/LIST`)
+      .get(`${URL}/Ostendo/FLASH/ITEMS/LIST`)
       .then((res) => {
         setstate(res.data);
       }).catch((err) => (document.body.innerHTML = err));

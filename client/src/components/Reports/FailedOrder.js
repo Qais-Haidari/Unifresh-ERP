@@ -8,7 +8,7 @@ export default function MissedSaleOrder() {
   useEffect(() => {
     setloading(true);
     axios
-      .get(`http://10.0.0.52:5000/ShadowOrderCheck`)
+      .get(`${URL}/ShadowOrderCheck`)
       .then((res) => {
         setstate(res.data);
         setloading(false);
