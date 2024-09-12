@@ -3,6 +3,7 @@ import React, { useState, useEffect } from "react";
 import Layout from "../../Layout";
 import EmailTempalte from "../../components/Template/Email/Email";
 import { getDaysFromNow, AussieDate, hashArrayWithSecret, getLastMonthStartAndEnd } from "../../Utils/Function";
+import { URL } from "../../Utils/URL";
 import axios from "axios";
 import { Link, useNavigate } from "react-router-dom";
 
