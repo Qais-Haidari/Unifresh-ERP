@@ -5,12 +5,10 @@ import { URL } from '../../Utils/URL';
 
 export default function Auth() {
   const [Username, setUsername] = useState("");
-  const [Password, setPassword] = useState("");
   const GetDetail = (e) => {
-    Axios.get(`${URL}/Auth/WebLogin/Login/${Username}/${Password}`).then((res) => {
-        if (res.data[0].CUSTOMER === '') {alert('Username or Passowrd is incorrect');
-        }else {localStorage.setItem('WebLogin', 1);localStorage.setItem('!@#!@#asdacas!@#', res.data[0].CUSTOMER);
-          localStorage.setItem('!@#S@SDA!@#', Username);localStorage.setItem('$@#G%%#$F@#$', Password); window.location.reload()}
+    Axios.get(`${URL}/Auth/WebLogin/Login/${Username}`).then((res) => {
+        if (res.data[0].EMPLOYEE === '') {alert('Username or Passowrd is incorrect');
+        }else {localStorage.setItem('WebLogin', 1);localStorage.setItem('!@#S@SDA!@#', res.data[0].EMPLOYEE); window.location.reload()}
       }).catch((err) => (document.body.innerHTML = err));
   };
 
@@ -28,10 +26,10 @@ export default function Auth() {
                   for="email"
                   class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
                 >
-                  Your Username
+                  Your Pin
                 </label>
                 <input
-                  type="email"
+                  type="number"
                   name="email"
                   id="email"
                   onChange={(e) => setUsername(e.target.value)}
@@ -39,21 +37,6 @@ export default function Auth() {
                   required=""
                 />
               </div>
-              <div>
-                <label
-                  for="password"
-                  class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
-                >
-                  Password
-                </label>
-                <input
-                  type="password"
-                  name="password"
-                  id="password"
-                  onChange={(e) => setPassword(e.target.value)}
-                  class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                  required=""
-                />
               </div>
               <button
                 type="submit"
@@ -64,7 +47,6 @@ export default function Auth() {
               </button>
             </div>
           </div>
-        </div>
       </section>
     </div>
   );

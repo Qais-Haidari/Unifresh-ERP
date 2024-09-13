@@ -6,10 +6,7 @@ export default function Payments() {
   useEffect(() => {
     axios
   .get(`http://10.0.0.52:5000/Ostendo/AccountingLinkMonitor_JournalHeaderSales_Statment`)
-  .then((res) => {
-    setstate(res.data);
-    console.log(res.data)
-  })
+  .then((res) => {setstate(res.data)})
   .catch((err) => (document.body.innerHTML = err));
 }, []);
   return (

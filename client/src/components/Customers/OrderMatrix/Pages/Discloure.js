@@ -3,8 +3,8 @@ import axios from "axios";
 import { URL } from '../../../../Utils/URL'
 
 export default function Minidiscloure({data, orderlist}) {
-  console.log(data)
   const [state, setstate] = useState([]);
+  const [Total, setTotal] = useState(0);
   useEffect(() => {
     let orderDet = [];
     let orderTotal = [];
@@ -34,9 +34,11 @@ export default function Minidiscloure({data, orderlist}) {
           setstate(combined)
           let final = [];
           let count = 0;
+          let total = 0;
           for (let q = 0; q < orderDet.length; q++) {
             for (let x = 0; x < Object.entries(combined).length; x++) {
               const element = orderDet[q];
+              total = total + Object.entries(combined)[x][1];
               if(element === Object.entries(combined)[x][0]){
                 final.push([element, Object.entries(combined)[x][1]])
               }
@@ -54,6 +56,12 @@ export default function Minidiscloure({data, orderlist}) {
               }
           });
           const result = Object.entries(uniqueItems);
+          let totalNUm = 0;
+          for (let index = 0; index < result.length; index++) {
+            const element = result[index];
+            totalNUm = totalNUm + element[1];
+          }
+          result[result.length -1] = ['Total',totalNUm]
           setstate(result)
         }
         run();
@@ -64,7 +72,7 @@ export default function Minidiscloure({data, orderlist}) {
   return (
     <React.Fragment>
       {state.map((res, index) => (
-          <li className={`w-full px-4 py-2 border-b ${res[1] !== 0 ? "text-white" : 'text-red-700 via-red-900'} border-gray-200 rounded-t-lg dark:border-gray-600`}>{res[1]}</li>
+          <li className={`w-full px-4 py-2 border-b ${res[1] !== 0 ? "text-white" : 'text-red-700 via-red-900'} border-gray-200 rounded-t-lg dark:border-gray-600`}>{res[1] }</li>
       ))}
     </React.Fragment>
   )

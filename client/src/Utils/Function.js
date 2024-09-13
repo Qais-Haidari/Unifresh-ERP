@@ -79,3 +79,15 @@ export function ExtractURL(url){
     const params = new URLSearchParams(queryString);
     return params.get('name');
 }
+
+
+export function ReturnDatefromArray(arr){
+        let arrx = [];
+        for (let index = 0; index < arr.flat().length; index++) {
+            const element = arr.flat()[index];
+            if (!element.startsWith("UF")) {
+                arrx.push(element);
+            }
+        }
+        return `From ${arrx.join(' To ')}`;
+}

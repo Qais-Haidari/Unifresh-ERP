@@ -6,9 +6,7 @@ const bcrypt = require('bcrypt')
 
 
 // Process Order
-Router.get("/Weblogin/Login/:username/:password", async (req, res) => {
-    res.send(await WebLogin(req.params.username, req.params.password));
-  });
+Router.get("/Weblogin/Login/:pin", async (req, res) => {res.send(await WebLogin(req.params.pin))});
 
   
   // Create Hash
