@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import Layout from "../../Layout";
-import { getDaysFromNow, ExtractURL, AussieDate } from "../../Utils/Function";
+import { getDaysFromNow, ExtractURL, AussieDate, getStartAndEndOfMonthsWithCurrentYear } from "../../Utils/Function";
 import { URL } from "../../Utils/URL";
 import axios from "axios";
 import { Link, useNavigate } from "react-router-dom";
@@ -8,6 +8,7 @@ import { Link, useNavigate } from "react-router-dom";
 export default function Customers() {
   const [state, setstate] = useState();
   const [Loading, setLoading] = useState(false);
+  const [Months12, setMonths12] = useState([]);
 
   const [startDate, setstartDate] = useState('');
   const [EndDate, setEndDate] = useState('');
@@ -23,12 +24,9 @@ export default function Customers() {
     setLoading(true);
     axios
       .get(`${URL}/Customers`)
-      .then((res) => {
-        setstate(res.data);
-        setLoading(false);
-      })
-      .catch((err) => (document.body.innerHTML = err));
-  }, []);
+      .then((res) => {setstate(res.data);setLoading(false);}).catch((err) => (document.body.innerHTML = err));
+      setMonths12(getStartAndEndOfMonthsWithCurrentYear())
+    }, []);
 
   const myFunction = () => {
     // Declare variables
@@ -58,7 +56,7 @@ export default function Customers() {
     }else {
       let start = getDaysFromNow(AussieDate(startDate))
       let end = getDaysFromNow(AussieDate(EndDate))
-      axios.get(`${URL}/Customer/OrderMatrix/${Math.abs(start)}/${Math.abs(end)}/${customer}`)
+      axios.get(`${URL}/Customer/OrderMatrix/${Math.abs(end)}/${Math.abs(start)}/${customer}`)
       .then((res) => {
         navigate("/OrderMatrix/Matrix", { state: { id: customer, data: res.data, start: Math.abs(start), End: Math.abs(end), EndDate: EndDate, StartDate: startDate } });
       })
@@ -81,7 +79,12 @@ export default function Customers() {
       .catch((err) => (document.body.innerHTML = err));
     }
   }
-
+  function SelectDate(e, data){
+    setstartDate(data.start)
+    setEndDate(data.end)
+    let x = document.querySelectorAll('#X');
+    e.target.classList.toggle('bg-white')
+  }
   if (!state) {
     return <p>Loading</p>;
   } else {
@@ -91,7 +94,6 @@ export default function Customers() {
           <div className="">
             <div className="grid grid-flow-col ml-2 w-full grid-col-3">
               <div>
-              <p className="text-white">Search Customers</p>
               <input
                 placeholder="Search Customer ..."
                 id="myInput"
@@ -99,22 +101,11 @@ export default function Customers() {
                 className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-72 my-1 ps-10 p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
               />
               </div>
-              <div>
-                <p className="text-white">Start Date</p>
-              <input
-                type="date"
-                onChange={(e) => setEndDate(e.target.value)}
-                className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-72 my-1 ps-10 p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                />
-                </div>
-              <div>
-                <p className="text-white">End Date</p>
-              <input
-                type="date"
-                onChange={(e) => setstartDate(e.target.value)}
-                className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-72 my-1 ps-10 p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-              />
-              </div>
+            </div>
+            <div className="grid grid-flow-col grid-cols-12 space-x-1 m-2">
+              {
+                Months12.map((data) => (<div id="X" className="border rounded-md text-center p-2" onClick={(e) => SelectDate(e, data)} >{data.monthName}</div>))
+              }
             </div>
             <div className="flow-root mx-2">
               <div className="-mx-4 -my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">

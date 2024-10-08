@@ -8,7 +8,7 @@ export default function Minidiscloure({data, orderlist}) {
   useEffect(() => {
     let orderDet = [];
     let orderTotal = [];
-    for (let g = 0; g < orderlist.length; g++) {orderDet.push(orderlist[g].LINEDESCRIPTION)}
+    for (let g = 0; g < orderlist.length; g++) {orderDet.push(orderlist[g].LINECODE)}
     let arr = [];
     let totalinv = []
     let totalres = [];
@@ -20,8 +20,8 @@ export default function Minidiscloure({data, orderlist}) {
         for (let d = 0; d < element.length; d++) {
           const elementx = element[d];
               let a = []
-              if(elementx.LINEDESCRIPTION !== ''){
-                a[elementx.LINEDESCRIPTION] = elementx.INVOICEQTY
+              if(elementx.LINECODE !== ''){
+                a[elementx.LINECODE] = elementx.INVOICEQTY
                 orderTotal.push(a)
               }
             }
@@ -31,7 +31,6 @@ export default function Minidiscloure({data, orderlist}) {
             acc[key] = (acc[key] || 0) + obj[key];
             return acc;
           }, {});
-          setstate(combined)
           let final = [];
           let count = 0;
           let total = 0;
@@ -49,6 +48,7 @@ export default function Minidiscloure({data, orderlist}) {
           }
           const uniqueItems = {};
           final.forEach(([name, quantity]) => {
+            // console.log(name, quantity)
               if (uniqueItems[name]) {
                   uniqueItems[name] += quantity;
               } else {

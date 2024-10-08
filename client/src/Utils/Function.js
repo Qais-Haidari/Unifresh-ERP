@@ -91,3 +91,26 @@ export function ReturnDatefromArray(arr){
         }
         return `From ${arrx.join(' To ')}`;
 }
+
+export function getStartAndEndOfMonthsWithCurrentYear() {
+    const monthNames = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+    const today = new Date(); // Get the current date
+    const year = today.getFullYear(); // Automatically get the current year
+    const todayFormatted = today.toISOString().split('T')[0]; // Format the current date as 'YYYY-MM-DD'
+    let months = [];
+    for (let month = 0; month < 12; month++) {
+      let startDate = new Date(year, month, 2);
+      let endDate = new Date(year, month + 1, 0);
+      let isCurrentMonth = today >= startDate && today <= endDate;
+  
+      months.push({
+        monthName: monthNames[month],
+        start: startDate.toISOString().split('T')[0], // start date as 'YYYY-MM-DD'
+        end: endDate.toISOString().split('T')[0],     // end date as 'YYYY-MM-DD'
+        isCurrentMonth: isCurrentMonth,
+        currentDate: isCurrentMonth ? todayFormatted : null // Only add current date for the current month
+      });
+    }
+  
+    return months;
+  }
